@@ -1,0 +1,41 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "routing", "routing\routing.vcproj", "{D7C7DCFA-6F8B-4CD1-B9C4-23FE3496BC4A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "om", "om\om.vcproj", "{A4C9E13B-8387-4E90-90E0-8F06FDF81E8C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bootstrap", "bootstrap\bootstrap.vcproj", "{E9B173B1-9A66-4A6E-B190-2CA3C3D39BAF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "util", "util\util.vcproj", "{BB8F5A90-A1C8-4879-ADB8-67172D242CE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{E9B173B1-9A66-4A6E-B190-2CA3C3D39BAF}.0 = {D7C7DCFA-6F8B-4CD1-B9C4-23FE3496BC4A}
+		{E9B173B1-9A66-4A6E-B190-2CA3C3D39BAF}.1 = {A4C9E13B-8387-4E90-90E0-8F06FDF81E8C}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D7C7DCFA-6F8B-4CD1-B9C4-23FE3496BC4A}.Debug.ActiveCfg = Debug|Win32
+		{D7C7DCFA-6F8B-4CD1-B9C4-23FE3496BC4A}.Debug.Build.0 = Debug|Win32
+		{D7C7DCFA-6F8B-4CD1-B9C4-23FE3496BC4A}.Release.ActiveCfg = Release|Win32
+		{D7C7DCFA-6F8B-4CD1-B9C4-23FE3496BC4A}.Release.Build.0 = Release|Win32
+		{A4C9E13B-8387-4E90-90E0-8F06FDF81E8C}.Debug.ActiveCfg = Debug|Win32
+		{A4C9E13B-8387-4E90-90E0-8F06FDF81E8C}.Debug.Build.0 = Debug|Win32
+		{A4C9E13B-8387-4E90-90E0-8F06FDF81E8C}.Release.ActiveCfg = Release|Win32
+		{A4C9E13B-8387-4E90-90E0-8F06FDF81E8C}.Release.Build.0 = Release|Win32
+		{E9B173B1-9A66-4A6E-B190-2CA3C3D39BAF}.Debug.ActiveCfg = Debug|Win32
+		{E9B173B1-9A66-4A6E-B190-2CA3C3D39BAF}.Debug.Build.0 = Debug|Win32
+		{E9B173B1-9A66-4A6E-B190-2CA3C3D39BAF}.Release.ActiveCfg = Release|Win32
+		{E9B173B1-9A66-4A6E-B190-2CA3C3D39BAF}.Release.Build.0 = Release|Win32
+		{BB8F5A90-A1C8-4879-ADB8-67172D242CE7}.Debug.ActiveCfg = Debug|Win32
+		{BB8F5A90-A1C8-4879-ADB8-67172D242CE7}.Debug.Build.0 = Debug|Win32
+		{BB8F5A90-A1C8-4879-ADB8-67172D242CE7}.Release.ActiveCfg = Release|Win32
+		{BB8F5A90-A1C8-4879-ADB8-67172D242CE7}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "juneyoo/distgamelib/colyseus/server/proto";
+
+message GameObject {
+	uint32 guid = 1;
+	float x = 2;
+	float y = 3;
+	float w = 4;
+	float h = 5;
+	int32 object_type = 6;
+}
+
+message GameEvent {
+	int32 input = 1;
+	int64 timestamp = 2;
+}
+
+message MatchMsg {
+    uint32 guid = 1;
+    int32 sid = 2;
+}
+
+message RegisterInterestRequest {
+	repeated uint32 target_guids = 1;
+	int32 sid = 2;
+	bool isRenewal = 3;
+}
+
+message RegisterInterestResponse {
+	repeated GameObject initial_states = 1;
+	repeated GameEvent latest_updates = 2;
+}
+
+message UpdateRequest {
+	uint32 target_guid = 1;
+	GameEvent update = 2;
+	repeated GameObject initial_states = 3;
+	repeated GameEvent latest_updates = 4;
+	repeated uint32 deleted_guids = 5;
+}
+
+message UpdateResponse {}
+
+message NotifySubscriberRequest {
+	repeated MatchMsg publications = 1;
+}
+
+message NotifySubscriberResponse {}
+
+message SpawnRequest {
+	GameObject game_object = 1;
+}
+
+message SpawnResponse {
+	uint32 guid = 1;
+}
+
+service Colyseus {
+	rpc Spawn(SpawnRequest) returns (SpawnResponse);
+	rpc RegisterInterest(RegisterInterestRequest) returns (RegisterInterestResponse);
+	rpc Update(UpdateRequest) returns (UpdateResponse);
+	rpc NotifySubscriber(NotifySubscriberRequest) returns (NotifySubscriberResponse);
+}

@@ -1,0 +1,29 @@
+# -*- Mode:makefile; indent-tabs-mode:t -*-
+# 
+# Top-level Makefile configuration. Copy to 'Makefile.conf' for local
+# configuration.
+#
+# Other global config variables you might want to pass to 'make':
+#
+# CC=... CPP=... RELEASE={release,debug,profile}
+#
+# $Id: Makefile.conf-default 2703 2006-03-06 21:30:21Z ashu $
+#
+
+## source directories used in all targets
+coredirs = mercury util
+
+## source directories for sim only
+simdirs = sim-env
+
+## source directories for wan only
+wandirs = wan-env 
+
+## library targets: set to YES to build
+make_onlysim = YES
+make_sim     = YES
+make_wan     = YES
+make_rpc     = NO
+
+## source directories for applications to build
+appdirs = apps util/time-test tests 

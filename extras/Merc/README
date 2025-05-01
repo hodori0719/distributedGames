@@ -1,0 +1,45 @@
+Mercury, Distributed Hash Table
+
+One example of a distributed hash table that can be used as the object locator
+for the replica manager. Not used for experimental purposes in this project.
+
+-------------------------------------------------------------------------------
+
+Copyright (C) 2004-2005 Ashwin Bharambe (ashu@cs.cmu.edu)
+              2004-2005 Jeffrey Pang    (jeffpang@cs.cmu.edu)
+                   2004 Mukesh Agrawal  (mukesh@cs.cmu.edu)
+
+http://www.cs.cmu.edu/~ashu/gamearch.html
+
+-------------------------------------------------------------------------------
+
+INTRODUCTION
+
+This software package contains a snapshot of Colyseus and Mercury, an
+architecture for distributed multiplayer games and a range-based DHT,
+respectively. See the URL above for more information.
+
+
+INSTALLATION
+
+This software currently only compiles and runs on Linux x86. You must
+use gcc 3.2-3.4 (we have only extensively tested gcc 3.2.2). In addition,
+you need GNU make and perl >= 5.8.0.
+
+(1) First, you must install the following development libraries and headers:
+
+    * glibc >= 2.3.2 (with pthreads)
+    * libgmp >= 4.1.2
+    * zlib >= 1.1.4
+    * XFree86 >= 4.2.0 or xorg equivalent (for the vizualizer)
+    * SDL >= 1.2.4 (for the vizualizer)
+    * SDL_image >= 1.2.2 (for the visualizer)
+
+(2) Place Merc/ in your home directory.
+
+(3) To compile the software, enter the Merc/ directory and type 'make'.
+    If something fails, it is possible that we missed a dependency in
+    the list above. Please let us know.
+
+(4) Enter Merc/run/ and untar lib-5.8.0-i686-linux.tar.gz which will
+    create Merc/run/lib/.

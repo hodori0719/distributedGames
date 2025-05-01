@@ -1,0 +1,85 @@
+////////////////////////////////////////////////////////////////////////////////
+// Mercury and Colyseus Software Distribution 
+// 
+// Copyright (C) 2004-2005 Ashwin Bharambe (ashu@cs.cmu.edu)
+//               2004-2005 Jeffrey Pang    (jeffpang@cs.cmu.edu)
+//                    2004 Mukesh Agrawal  (mukesh@cs.cmu.edu)
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2, or (at
+// your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+// USA
+////////////////////////////////////////////////////////////////////////////////
+/* -*- Mode:c++; c-basic-offset:4; tab-width:4; indent-tabs-mode:nil -*- */
+
+#ifndef __POINTER_MAP__H
+#define __POINTER_MAP__H
+
+#include <map>
+#include <util/types.h>
+#include <mercury/ID.h>
+
+template<class T>
+class PointerMap {
+ private:
+    typedef map<uint32, T *> TMap;
+    typedef typename TMap::iterator TMapIter;
+    typedef map<T *, uint32, less_ptr> TRevMap;
+    typedef typename TRevMap::iterator TRevMapIter;
+
+    TMap smap;
+    TRevMap rmap;
+    uint32 uniqueID;
+ public:
+
+    PointerMap() : uniqueID(0) {}
+
+    uint32 operator[](T *s) {
+	return GetID(s);
+    }
+    T *operator[](uint32 id) {
+	return GetPtr(id);
+    }
+
+    uint32 GetID(T *s) {
+	TRevMapIter p = rmap.find(s);
+	if (p == rmap.end()) {
+	    uint32 id = uniqueID++;
+	    rmap[s] = id;
+	    smap[id] = s;
+	}
+	return rmap[s];
+    }
+
+    T *GetPtr(uint32 id) {
+	TMapIter p = smap.find(id);
+	if (p == smap.end()) {
+	    return NULL;
+	}
+	return p->second;
+    }
+
+    void Add(uint32 id, T *s) {
+	rmap[s] = id;
+	smap[id] = s;
+    }
+};
+
+#endif
+// vim: set sw=4 sts=4 ts=8 noet: 
+// Local Variables:
+// Mode: c++
+// c-basic-offset: 4
+// tab-width: 8
+// indent-tabs-mode: t
+// End:

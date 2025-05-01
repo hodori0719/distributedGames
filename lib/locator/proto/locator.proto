@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package locator;
+
+option go_package = "juneyoo/distgamelib/colyseus/locator/proto";
+
+message GameObjectMsg {
+	uint32 guid = 1;
+    int32 sid = 2;
+	float x = 3;
+	float y = 4;
+	float w = 5;
+	float h = 6;
+}
+
+message MatchMsg {
+    uint32 guid = 1;
+    int32 sid = 2;
+}
+
+message StorableMsg {
+    GameObjectMsg game_object = 1;
+    int64 ttl = 2;
+}
+
+message SubscribeRequest {
+    repeated StorableMsg subscriptions = 1;
+}
+
+message PublishRequest {
+    repeated StorableMsg publications = 1;
+}
+
+message SubscribeResponse {
+    repeated MatchMsg publications = 1;
+}
+
+message PublishResponse {}
+
+service Locator {
+    rpc Subscribe(SubscribeRequest) returns (SubscribeResponse);
+    rpc Publish(PublishRequest) returns (PublishResponse);
+}
